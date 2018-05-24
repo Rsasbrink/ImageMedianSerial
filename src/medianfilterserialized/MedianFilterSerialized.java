@@ -25,21 +25,32 @@ class MedianFilterSerialized {
     //PICTURES http://people.sc.fsu.edu/~jburkardt/data/pgma/pgma.html
     public static void main(String[] a) throws Throwable {
         final String fileType = "png";
-        final String file = "/Users/rowanvi/Desktop/balloons_noisy-color.png";
-        final String outputFile = "/Users/rowanvi/Desktop/output4.png";
-        long startTime = System.nanoTime();
+        final String file = "input2.png";
+        final String outputFile = "output2.png";
+        final int chunks = 4;
+  
+        long startTime = System.currentTimeMillis();
+
         final Image image = new Image(file, outputFile, fileType);
         BufferedImage outputImage = null;
-        image.applyMedianFilterOnOtherImages();
-        ImageIO.write(image.getImg(), image.getFileType(), image.getOutputCreatedFile());
-        long endTime = System.nanoTime();
+        BufferedImage splitTemp[] = new BufferedImage[chunks];       
+        splitTemp = image.splitImage();
+        final BufferedImage imgs[] = splitTemp;
+
+
+
+
+
+        for (int i = 0; i < imgs.length; i++) {
+            image.applyMedianFilterOnOtherImages(imgs[i]);
+        }
+
+        image.combineChunks(imgs);
+        
+        //ImageIO.write(image.getImg(), image.getFileType(), image.getOutputCreatedFile());
+        long endTime = System.currentTimeMillis();
         long duration = (endTime - startTime);
+
         System.out.println("Duration " + duration);
-        //NOT IN USE FOR NOW
-//        if(fileType == "PGM"){
-//            md.applyMedianFilterOnPGM(file, outputFile);
-//        }else{
-//            md.applyMedianFilterOnOtherImages(file, outputFile, fileType);
-//        }
     }
 }
