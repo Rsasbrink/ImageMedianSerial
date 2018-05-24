@@ -37,10 +37,6 @@ class MedianFilterSerialized {
         splitTemp = image.splitImage();
         final BufferedImage imgs[] = splitTemp;
 
-
-
-
-
         for (int i = 0; i < imgs.length; i++) {
             image.applyMedianFilterOnOtherImages(imgs[i]);
         }
