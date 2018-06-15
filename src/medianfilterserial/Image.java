@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medianfilterserialized;
+package medianfilterserial;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -73,8 +73,8 @@ public class Image {
 
     public BufferedImage[] splitImage() throws Exception {
         long startTime = System.currentTimeMillis();
-        int rows = 2; //You should decide the values for rows and cols variables
-        int cols = 2;
+        int rows = 5; //You should decide the values for rows and cols variables
+        int cols = 5;
         int chunks = rows * cols;
         File f = new File(this.input);
         this.img = ImageIO.read(f);
@@ -105,8 +105,8 @@ public class Image {
 
     public void combineChunks(BufferedImage imgs[]) throws IOException, Exception {
         long startTime = System.currentTimeMillis();
-        int rows = 2;   //we assume the no. of rows and cols are known and each chunk has equal width and height
-        int cols = 2;
+        int rows = 5;   //we assume the no. of rows and cols are known and each chunk has equal width and height
+        int cols = 5;
         int chunks = rows * cols;
         int chunkWidth, chunkHeight;
         chunkWidth = imgs[0].getWidth();

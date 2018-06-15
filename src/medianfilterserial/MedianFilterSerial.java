@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medianfilterserialized;
+package medianfilterserial;
 
 /**
  *
@@ -20,14 +20,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.*;
 
-class MedianFilterSerialized {
+class MedianFilterSerial {
 
     //PICTURES http://people.sc.fsu.edu/~jburkardt/data/pgma/pgma.html
     public static void main(String[] a) throws Throwable {
         final String fileType = "png";
         final String file = "input2.png";
         final String outputFile = "output2.png";
-        final int chunks = 4;
+        final int chunks = 25;
   
         long startTime = System.currentTimeMillis();
 
